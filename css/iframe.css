@@ -1,0 +1,31 @@
+.popup-modal {
+    /* Ensure modal occupies full height and width */
+    width: 100%;
+    height: 100%;
+    position: fixed; /* Position fixed to overlay */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 9999; /* Ensure it's on top */
+}
+
+.modal-content {
+    width: 100%; /* 90% of the viewport width */
+    height: 900vh; /* 90% of the viewport height */
+    
+    padding: 20px; /* Optional padding */
+    background: white; /* Background color for modal */
+    border-radius: 5px; /* Optional rounded corners */
+    position: absolute; /* Allow positioning */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    overflow: hidden; /* Hide overflow */
+}
+
+#modalIframe {
+    height: 100%; /* Full height of modal content */
+    width: 100%; /* Full width of modal content */
+    border: none; /* No border */
+    /* Optional: Adding box shadow for iframe */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}

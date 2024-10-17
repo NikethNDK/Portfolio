@@ -800,3 +800,13 @@ fieldset {
         font-size: 10px;
     }
 }
+
+/* image size */
+.img-size a img{
+    height: 34rem;
+    width: 100%;
+}
+.img-size a img{
+    border: 3px solid lightgrey;
+    border-radius: 14px;
+}

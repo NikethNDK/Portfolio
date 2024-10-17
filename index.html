@@ -173,7 +173,7 @@
                         <div class="no-padding portfolio_container clearfix" data-aos="fade-up">
                             <!-- single work -->
                             <div class="col-md-4 col-sm-6 logo img-size">
-                                <a href="https://nikethndk.github.io/Week1_Website_Google/google.html" target="_blank"> <img src="img/portfolio/Google.png" alt="google-img"  class="img-responsive" />
+                                <a href="https://nikethndk.github.io//Week2_ResponsiveGoogle/google_about.html" target="_blank"> <img src="img/portfolio/Google.png" alt="google-img"  class="img-responsive" />
                                     
                                 </a>
                             </div>
@@ -269,43 +269,25 @@
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg" id="contact-form" name="contact" method="post" novalidate="novalidate">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" />
-                    <input type="email" name="email" class="form-control" placeholder="Your E-mail" />
-                    <input type="text" name="phone" class="form-control" placeholder="Phone Number" />
+                <form action="/" method="POST" class="contact-bg" id="contact-form" name="contact">
+                    <input type="text" name="name" class="form-control" placeholder="First Name" id="name" required="">
+                    <input type="text" name="lname" class="form-control" placeholder="Last Name" id="lname" > 
+                    <input type="email" name="email" class="form-control" placeholder="E-mail" id="email" required="">
+                    <input type="text" name="phone" class="form-control" placeholder="Phone Number" id="phone" />
                     <textarea name="message" class="form-control" placeholder="Your Message" style="height:120px"></textarea>
                     <button id="submit" type="submit" name="submit" class="btn btn-glance">Send</button>
-                    <div id="success">
+                    <!-- <div id="success">
                         <p class="green textcenter"> Your message was sent successfully! I will be in touch as soon as I can. </p>
                     </div>
                     <div id="error">
                         <p> Something went wrong, try refreshing and submitting the form again. </p>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </div>
     </div>
     <!-- ./contact -->
 
-    <!--DEMO01-->
-  <div id="animatedModal" class="popup-modal">
-    <div id="btn-close-modal" class="close-animatedModal close-popup-modal"> 
-        <i class="ion-close-round"></i> 
-    </div>
-    <div class="clearfix"></div>
-    <div class="modal-content">
-        <div class="container">
-            <div class="portfolio-padding">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2>Website Preview</h2>
-                    <div class="h-50"></div>
-                    <iframe id="modalIframe" src="" width="100%" style="border:none;"></iframe> <!-- Keep width 100% -->
-                    <br />
-                </div>
-            </div>
-        </div>
-    </div>
-</div> 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!--  plugins  -->
@@ -317,6 +299,30 @@
     <script src="js/portfolio.js"></script>
     <!--  main script  -->
     <script src="js/custom.js"></script>
+    <script src="js/formvalidate.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "UV6zp4knlfJxCWJlY",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(() => {
+                        alert('SUCCESS!');
+                    }, (error) => {
+                        alert('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </body>
 
 </html>

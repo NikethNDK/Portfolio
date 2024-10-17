@@ -109,36 +109,36 @@ $(document).ready(function () {
     // Contact Form 	
 
     // validate contact form
-    // $(function () {
-    //     $('#contact-form').validate({
-    //         rules: {
-    //             name: {
-    //                 required: true,
-    //                 minlength: 2
-    //             },
-    //             email: {
-    //                 required: true
-    //             },
-    //             phone: {
-    //                 required: false
-    //             },
-    //             message: {
-    //                 required: true
-    //             }
+    $(function () {
+        $('#contact-form').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                email: {
+                    required: true
+                },
+                phone: {
+                    required: false
+                },
+                message: {
+                    required: true
+                }
 
-    //         },
-    //         messages: {
-    //             name: {
-    //                 required: "This field is required",
-    //                 minlength: "your name must consist of at least 2 characters"
-    //             },
-    //             email: {
-    //                 required: "This field is required"
-    //             },
-    //             message: {
-    //                 required: "This field is required"
-    //             }
-    //         },
+            },
+            messages: {
+                name: {
+                    required: "This field is required",
+                    minlength: "your name must consist of at least 2 characters"
+                },
+                email: {
+                    required: "This field is required"
+                },
+                message: {
+                    required: "This field is required"
+                }
+            }
              
             // function() {
             //     document.getElementById('contact-form').addEventListener('submit', function(event) {
@@ -174,5 +174,23 @@ $(document).ready(function () {
             // }
         });
 
-//     });
-// });
+    });
+});
+
+$(window).on('load', function () {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Check if the form is valid before submitting with emailjs
+        if ($('#contact-form').valid()) {
+            emailjs.sendForm('contact_service', 'contact_form', this)
+                .then(() => {
+                    alert('SUCCESS!');
+                }, (error) => {
+                    alert('FAILED...', error);
+                });
+        } else {
+            alert('Please fill out the required fields correctly.');
+        }
+    });
+});

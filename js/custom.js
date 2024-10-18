@@ -114,7 +114,8 @@ $(document).ready(function () {
             rules: {
                 name: {
                     required: true,
-                    minlength: 2
+                    minlength: 2,
+                    
                 },
                 email: {
                     required: true
@@ -130,7 +131,8 @@ $(document).ready(function () {
             messages: {
                 name: {
                     required: "This field is required",
-                    minlength: "your name must consist of at least 2 characters"
+                    minlength: "your name must consist of at least 2 characters",
+                    pattern: "please enter characters"
                 },
                 email: {
                     required: "This field is required"
@@ -186,6 +188,7 @@ $(window).on('load', function () {
             emailjs.sendForm('contact_service', 'contact_form', this)
                 .then(() => {
                     alert('SUCCESS!');
+                    document.getElementById("contact-form").reset();
                 }, (error) => {
                     alert('FAILED...', error);
                 });

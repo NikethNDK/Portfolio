@@ -273,7 +273,7 @@
                     <input type="text" name="name" class="form-control" placeholder="First Name" id="name" required="">
                     <input type="text" name="lname" class="form-control" placeholder="Last Name" id="lname" > 
                     <input type="email" name="email" class="form-control" placeholder="E-mail" id="email" required="">
-                    <input type="text" name="phone" class="form-control" placeholder="Phone Number" id="phone" />
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" id="phone" />
                     <textarea name="message" class="form-control" placeholder="Your Message" style="height:120px"></textarea>
                     <button id="submit" type="submit" name="submit" class="btn btn-glance">Send</button>
                     <!-- <div id="success">
@@ -308,7 +308,21 @@
               publicKey: "UV6zp4knlfJxCWJlY",
             });
         })();
+
+
+
     </script>
+    <script>
+                $('#phone').on('input', function() {
+                    // Allow only digits
+                    $(this).val($(this).val().replace(/\D/g, ''));
+                });
+
+                $('#name').on('input', function() {
+                 $(this).val($(this).val().replace(/[^a-zA-Z\s]/g, '')); // Allow only letters and spaces
+});
+    </script>
+    
     <!-- <script type="text/javascript">
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {

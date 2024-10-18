@@ -121,7 +121,8 @@ $(document).ready(function () {
                     required: true
                 },
                 phone: {
-                    required: false
+                    required: false,
+                    maxlength: 10,
                 },
                 message: {
                     required: true
